@@ -1,27 +1,40 @@
-# 🗳️ Election Management System — Albania (VOTO-AL 2025)
+# Election Management System — VOTO-AL 2025
 
-A Java Swing desktop application for managing Albanian national elections. Built with NetBeans, it covers the full election lifecycle — from voter registration and candidate management to vote casting and result tabulation.
+**Java · Swing · Object-Oriented Design**  
+Desktop application for managing a simulated Albanian national election cycle
 
----
+![Java](https://img.shields.io/badge/Java-Swing-orange)
+![IDE](https://img.shields.io/badge/IDE-NetBeans-blue)
+![Domain](https://img.shields.io/badge/Domain-Election%20Management-darkgreen)
 
-## 🖥️ Features
-
-- **Voter Registration** — Auto-generated voter IDs in format `AL-001`, `AL-002`, ...
-- **Single-Vote Enforcement** — Once a voter casts their vote, they cannot log in again
-- **5 Albanian Political Parties** with custom logos:
-  - 🔴 PS — Partia Socialiste e Shqipërisë
-  - 🔵 PD — Partia Demokratike e Shqipërisë
-  - 🟤 LSI — Lëvizja Socialiste për Integrim
-  - 🟠 PDIU — Partia për Drejtësi, Integrim dhe Unitet
-  - 🟣 PRS — Partia Republikane e Shqipërisë
-- **Automatic Election News** — 8 news items are auto-published when the election starts
-- **Admin Panel** — Manage voters, candidates, constituencies, news, and election control
-- **Result Tabulation** — Live vote counts and overall turnout report
-- **Splash Screen** with progress bar on startup
+A NetBeans-based Java Swing application that models the election lifecycle: voter registration, candidate and constituency management, controlled vote casting, news updates, and result tabulation.
 
 ---
 
-## 🏛️ Electoral Zones
+## Overview
+
+The system supports two roles — **Administrator** and **Voter** — through a shared Welcome interface. Administrators configure the election, manage entities, and control start/end. Voters authenticate with a generated ID, cast a single ballot per assembly level, and are blocked from voting again once their ballot is recorded.
+
+The application is designed as an educational / portfolio project that demonstrates GUI design, domain modeling, and election process rules in pure Java (no external database).
+
+---
+
+## Features
+
+| Area | Capability |
+|------|------------|
+| **Voter registration** | Auto-generated voter IDs (`AL-001`, `AL-002`, …) |
+| **Single-vote rule** | After voting, the same voter cannot log in again |
+| **Parties** | Five Albanian parties with custom logos (PS, PD, LSI, PDIU, PRS) |
+| **Election control** | Start / end election from the admin panel |
+| **News** | Automatic publication of election news when the election starts |
+| **Admin panel** | Voters, candidates, constituencies, news, and process control |
+| **Results** | Live vote counts and overall turnout-style reporting |
+| **UX** | Splash screen with progress bar on startup |
+
+---
+
+## Electoral Zones
 
 | Qarku | Bashkia |
 |-------|---------|
@@ -29,78 +42,32 @@ A Java Swing desktop application for managing Albanian national elections. Built
 | Q-DR (Durrës) | B-DR-1 |
 | Q-SH (Shkodër) | B-SH-1 |
 
----
-
-## 👤 Default Admin Credentials
-
-```
-Username: admin
-Password: admin
-```
+Voters select candidates at the relevant assembly levels (qark / bashki) according to the configured constituencies.
 
 ---
 
-## 🚀 Getting Started
+## Political Parties
 
-### Requirements
-- Java JDK 11 or higher
-- NetBeans IDE (recommended)
+| Code | Party |
+|------|--------|
+| PS | Partia Socialiste e Shqipërisë |
+| PD | Partia Demokratike e Shqipërisë |
+| LSI | Lëvizja Socialiste për Integrim |
+| PDIU | Partia për Drejtësi, Integrim dhe Unitet |
+| PRS | Partia Republikane e Shqipërisë |
 
-### Run
-1. Clone the repository
-2. Open the project in NetBeans: `File → Open Project`
-3. Build and run: `Run → Run Project (F6)`
-4. Login as **Administrator** or **Voter** from the Welcome Page
-
----
-
-## 📁 Project Structure
-
-```
-src/
-└── ElectionManagementSystem/
-    ├── main.java                  # Entry point, initial data
-    ├── Person.java                # Base class
-    ├── Administrator.java         # Admin credentials & login
-    ├── Voter.java                 # Voter with hasVoted flag
-    ├── Candidate.java             # Candidate with party & votes
-    ├── Constituency.java          # Electoral zone (Qark/Bashki)
-    ├── ElectionControl.java       # Start/end election logic
-    ├── ElectionNews.java          # News model
-    ├── ElectionResultsTable.java  # Results display
-    ├── ResultTabulationOverall.java
-    ├── WelcomePage.java           # Main GUI (admin + voter panels)
-    ├── SplashScreen.java          # Startup splash screen
-    ├── VoterVerify.java           # Voter verification panel
-    └── [Party logo PNGs]          # PSSymbol, PDSymbol, LSISymbol...
-```
+Party symbols are included as PNG assets in the source package.
 
 ---
 
-## 🔐 How Voting Works
+## Voting Flow
 
-1. Admin starts the election from the **Election Control** panel
-2. Voter logs in with their ID (e.g. `AL-005`)
-3. Voter selects one candidate per assembly (Qark + Bashki)
-4. After clicking **VOTE**, a confirmation appears and the voter is redirected to the home page
-5. If the same voter tries to log in again → access is blocked
-
----
-
-## 🛠️ Built With
-
-- **Java** (Swing / JFrame)
-- **NetBeans** IDE
-- **Pillow** (Python) — used to generate party logo images
+1. Administrator starts the election from **Election Control**  
+2. Voter logs in with their ID (e.g. `AL-005`)  
+3. Voter selects one candidate per relevant assembly  
+4. On **VOTE**, the system confirms the ballot and returns to the home view  
+5. A second login attempt by the same voter is rejected (already voted)
 
 ---
 
-## 📸 Screenshots
-
-> *(Add screenshots of the Welcome Page, Voter Panel, and Results here)*
-
----
-
-## 📄 License
-
-This project was developed for educational purposes.
+## Default Admin Credentials
