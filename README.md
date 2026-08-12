@@ -93,9 +93,10 @@ Change these in the application seed/setup code before any non-demo use.
 ---
 
 ## Project Structure
+```
 SistemiZgjedhorShqiptar-Voto25/
 ├── README.md
-├── AlbaniaEMS/                          # NetBeans project root
+├── AlbaniaEMS/
 │   ├── build.xml
 │   ├── manifest.mf
 │   ├── nbproject/
@@ -106,23 +107,24 @@ SistemiZgjedhorShqiptar-Voto25/
 │   └── src/
 │       ├── class diagram/
 │       │   └── Class Diagram.png
-│       ├── Icons/                       # UI icons
+│       ├── Icons/
 │       └── ElectionManagementSystem/
-│           ├── main.java                # Entry point & initial data
-│           ├── Person.java              # Base type
+│           ├── main.java
+│           ├── Person.java
 │           ├── Administrator.java
-│           ├── Voter.java               # Includes hasVoted state
+│           ├── Voter.java
 │           ├── Candidate.java
 │           ├── Constituency.java
 │           ├── ElectionControl.java
 │           ├── ElectionNews.java
 │           ├── ElectionResultsTable.java
 │           ├── ResultTabulationOverall.java
-│           ├── WelcomePage.java         # Main GUI (admin + voter)
+│           ├── WelcomePage.java
 │           ├── SplashScreen.java
 │           ├── VoterVerify.java
-│           └── *Symbol.png              # Party logos
-└── bin/                                 # Compiled classes (if present)
+│           └── *Symbol.png
+└── bin/
+```
 
 
 ---
