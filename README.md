@@ -126,9 +126,6 @@ SistemiZgjedhorShqiptar-Voto25/
 └── bin/
 ```
 
-
----
-
 ## Getting Started
 
 ### Requirements
