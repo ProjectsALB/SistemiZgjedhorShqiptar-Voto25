@@ -71,3 +71,131 @@ Party symbols are included as PNG assets in the source package.
 ---
 
 ## Default Admin Credentials
+
+Username: admin
+Password: admin
+
+
+Change these in the application seed/setup code before any non-demo use.
+
+---
+
+## Tech Stack
+
+| Component | Technology |
+|-----------|------------|
+| Language | Java |
+| UI | Swing (`JFrame` and related components) |
+| IDE | NetBeans (Ant project layout) |
+| Design | OOP domain model (`Person` hierarchy, election entities) |
+| Assets | Party logos (PNG); optional Pillow used to generate logos |
+
+---
+
+## Project Structure
+SistemiZgjedhorShqiptar-Voto25/
+├── README.md
+├── AlbaniaEMS/                          # NetBeans project root
+│   ├── build.xml
+│   ├── manifest.mf
+│   ├── nbproject/
+│   ├── README.md
+│   ├── ELECTIONS MANAGEMENT SYSTEM (EMS) - Report.pdf
+│   ├── PROJECT PROPOSAL.pdf
+│   ├── Presentation Elections Management System (EMS).pdf
+│   └── src/
+│       ├── class diagram/
+│       │   └── Class Diagram.png
+│       ├── Icons/                       # UI icons
+│       └── ElectionManagementSystem/
+│           ├── main.java                # Entry point & initial data
+│           ├── Person.java              # Base type
+│           ├── Administrator.java
+│           ├── Voter.java               # Includes hasVoted state
+│           ├── Candidate.java
+│           ├── Constituency.java
+│           ├── ElectionControl.java
+│           ├── ElectionNews.java
+│           ├── ElectionResultsTable.java
+│           ├── ResultTabulationOverall.java
+│           ├── WelcomePage.java         # Main GUI (admin + voter)
+│           ├── SplashScreen.java
+│           ├── VoterVerify.java
+│           └── *Symbol.png              # Party logos
+└── bin/                                 # Compiled classes (if present)
+
+
+---
+
+## Getting Started
+
+### Requirements
+
+- **JDK 11+**  
+- **NetBeans IDE** (recommended for this Ant/NetBeans layout)
+
+### Run with NetBeans
+
+1. Clone the repository  
+2. Open `AlbaniaEMS` in NetBeans: **File → Open Project**  
+3. **Run → Run Project (F6)**  
+4. From the Welcome page, sign in as **Administrator** or **Voter**
+
+### Notes
+
+- Initial voters, candidates, and constituencies are seeded from `main.java`  
+- Party logo PNGs must remain on the classpath / package path expected by the UI  
+
+---
+
+## Design Highlights
+
+| Concern | Approach in this project |
+|---------|---------------------------|
+| **Domain model** | Clear entities: Person, Administrator, Voter, Candidate, Constituency, Election control/news/results |
+| **Election integrity** | Start gate + single-vote enforcement via voter state |
+| **UI structure** | Splash → Welcome; separate admin and voter workflows |
+| **Results** | Tabulation components for counts and overall view |
+| **Documentation** | Class diagram, proposal, report, and presentation under `AlbaniaEMS/` |
+
+Class diagram: `AlbaniaEMS/src/class diagram/Class Diagram.png`
+
+---
+
+## Skills Demonstrated
+
+| Area | Evidence |
+|------|----------|
+| **Java OOP** | Inheritance (`Person`), encapsulation of voter/candidate/admin state |
+| **Desktop UI** | Multi-panel Swing application with role-based flows |
+| **Process modeling** | Election start/end, registration, vote casting, results |
+| **Business rules** | One vote per voter; admin-controlled election window |
+| **Project delivery** | NetBeans project structure, assets, reports, and presentation |
+
+---
+
+## Documentation
+
+| File | Purpose |
+|------|---------|
+| `AlbaniaEMS/PROJECT PROPOSAL.pdf` | Project proposal |
+| `AlbaniaEMS/ELECTIONS MANAGEMENT SYSTEM (EMS) - Report.pdf` | Written report |
+| `AlbaniaEMS/Presentation Elections Management System (EMS).pdf` | Presentation |
+| `AlbaniaEMS/src/class diagram/Class Diagram.png` | Class diagram |
+
+---
+
+## Author
+
+**Kristina Spahi**  
+Computer Engineer · Data Analyst · Full-Stack Developer  
+
+- Email: 26spahikristi@gmail.com  
+- GitHub: [github.com/ProjectsALB](https://github.com/ProjectsALB)
+
+---
+
+## License
+
+Developed for educational and portfolio use.  
+Not intended for production election systems without security, audit, and legal hardening.
